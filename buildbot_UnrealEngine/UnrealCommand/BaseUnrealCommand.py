@@ -143,6 +143,8 @@ class BaseUnrealCommand(ShellCommand):
             "{0}.{1}".format(script, self.getPlatformScriptExtension()))
 
     def getProjectFileName(self):
+        if self.project_path is None:
+            return ""
         projectName = self.project_path
         projectName = projectName.replace("\\", "/")
         splittedName = projectName.split("/")

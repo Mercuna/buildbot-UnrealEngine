@@ -35,6 +35,7 @@ class Build(BaseUnrealCommand):
             self.target_platform,
             self.target_config,
             self.project_path]
+        command = filter(None, command)
         if self.wait_mutex:
             command.append("-WaitMutex")
         self.setCommand(command)
