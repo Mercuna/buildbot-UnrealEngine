@@ -90,7 +90,8 @@ class BaseUnrealCommand(ShellCommand):
         "Android",
         "HTML5",
         "Linux",
-        "TVOS"
+        "TVOS",
+        "Switch"
     ]
     supported_target_config = [
         "Debug",
