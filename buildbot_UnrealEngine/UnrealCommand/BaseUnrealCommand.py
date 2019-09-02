@@ -127,7 +127,7 @@ class BaseUnrealCommand(ShellCommand):
         elif self.build_platform == "Linux":
             return "sh"
         elif self.build_platform == "Mac":
-            return "command"
+            return "sh"
 
     def runSanityChecks(self):
         if self.do_sanity_checks:
