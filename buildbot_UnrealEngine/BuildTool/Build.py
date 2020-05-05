@@ -37,8 +37,11 @@ class Build(BaseUnrealCommand):
                 self.build_type, inside_platform_dir=True),
             self.target,
             self.target_platform,
-            self.target_config,
-            self.project_path]
+            self.target_config]
+
+        if self.project_path is not None:
+            command.append(self.project_path)
+
         if self.wait_mutex:
             command.append("-WaitMutex")
 

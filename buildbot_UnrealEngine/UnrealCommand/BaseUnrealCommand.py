@@ -194,12 +194,17 @@ class BaseUnrealCommand(ShellMixin, BuildStep):
                 script, self.getPlatformScriptExtension(inside_platform_dir)))
 
     def getProjectFileName(self):
-        projectName = self.project_path
-        projectName = projectName.replace("\\", "/")
-        splittedName = projectName.split("/")
-        if len(splittedName) >= 2:
-            projectName = splittedName[-1]
-        return projectName
+        if self.project_path is not None:
+            
+            projectName = self.project_path
+            projectName = projectName.replace("\\", "/")
+            splittedName = projectName.split("/")
+            if len(splittedName) >= 2:
+                projectName = splittedName[-1]
+            return projectName
+        else:
+            return ""
+        
 
     def doSanityChecks(self):
         if (isinstance(self.build_platform, str) and
